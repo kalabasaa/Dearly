@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dearly_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/space_xl">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:importantForAccessibility="no"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            style="@style/TextAppearance.Dearly.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_md"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/tv_greeting"
+            style="@style/TextAppearance.Dearly.Body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xs"
+            android:textColor="@color/dearly_text_secondary" />
+
+        <!-- Main PIN panel -->
+        <LinearLayout
+            android:id="@+id/panel_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xl"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_message"
+                style="@style/TextAppearance.Dearly.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityLiveRegion="polite"
+                android:gravity="center"
+                android:minHeight="@dimen/space_xl"
+                android:textColor="@color/dearly_text_secondary"
+                android:text="@string/lock_enter_pin" />
+
+            <com.dearly.app.ui.PinPadView
+                android:id="@+id/pin_pad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/space_sm"
+                android:orientation="vertical" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_forgot"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm"
+                android:minHeight="@dimen/touch_target"
+                android:text="@string/lock_forgot_pin" />
+        </LinearLayout>
+
+        <!-- Recovery question panel -->
+        <LinearLayout
+            android:id="@+id/panel_recovery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xl"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/TextAppearance.Dearly.Heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recovery_title" />
+
+            <TextView
+                android:id="@+id/tv_question"
+                style="@style/TextAppearance.Dearly.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_md"
+                android:hint="@string/hint_answer">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_recovery_error"
+                style="@style/TextAppearance.Dearly.Meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/dearly_error"
+                android:accessibilityLiveRegion="polite" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_verify_answer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/control_height"
+                android:layout_marginTop="@dimen/space_md"
+                android:text="@string/verify" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_recovery_cancel"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/touch_target"
+                android:layout_marginTop="4dp"
+                android:text="@string/back_to_lock" />
+        </LinearLayout>
+
+        <!-- New PIN panel (only after the answer was verified) -->
+        <LinearLayout
+            android:id="@+id/panel_new_pin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xl"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_new_pin_title"
+                style="@style/TextAppearance.Dearly.Heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:accessibilityLiveRegion="polite" />
+
+            <com.dearly.app.ui.PinPadView
+                android:id="@+id/pad_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_sm" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

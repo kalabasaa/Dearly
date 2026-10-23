@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing scale -->
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_sm">8dp</dimen>
+    <dimen name="space_md">12dp</dimen>
+    <dimen name="space_lg">16dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+
+    <!-- Page layout -->
+    <dimen name="page_margin">16dp</dimen>
+    <dimen name="page_title_top">24dp</dimen>
+    <dimen name="section_gap">24dp</dimen>
+    <dimen name="item_gap">12dp</dimen>
+    <dimen name="list_bottom_padding">96dp</dimen>
+    <!-- Material text buttons carry a 12dp inset; this lines their text up with the page margin. -->
+    <dimen name="text_button_inset">-12dp</dimen>
+
+    <!-- Components -->
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="card_radius">16dp</dimen>
+    <dimen name="control_radius">12dp</dimen>
+    <dimen name="control_height">56dp</dimen>
+    <dimen name="touch_target">48dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="fab_radius">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="folder_card_min_height">128dp</dimen>
+
+    <!-- Bottom navigation -->
+    <dimen name="nav_icon_size">24dp</dimen>
+    <dimen name="nav_item_padding_vertical">12dp</dimen>
+    <dimen name="nav_indicator_size">48dp</dimen>
+    <dimen name="nav_height">64dp</dimen>
+
+    <!-- Typography scale (strict hierarchy) -->
+    <dimen name="text_display">28sp</dimen>
+    <dimen name="text_title">24sp</dimen>
+    <dimen name="text_heading">16sp</dimen>
+    <dimen name="text_body">16sp</dimen>
+    <dimen name="text_label">14sp</dimen>
+    <dimen name="text_meta">12sp</dimen>
+
+    <!-- Note editor -->
+    <dimen name="editor_text_size">17sp</dimen>
+    <dimen name="editor_bullet_size">24sp</dimen>
+
+    <!-- PIN pad (overridden for larger screens in values-sw360dp / values-sw600dp) -->
+    <dimen name="pin_key_width">76dp</dimen>
+    <dimen name="pin_key_height">64dp</dimen>
+    <dimen name="pin_key_text">30sp</dimen>
+    <dimen name="pin_dot_size">14dp</dimen>
+    <dimen name="pin_dot_spacing">10dp</dimen>
+    <dimen name="pin_dot_row_height">40dp</dimen>
+</resources>

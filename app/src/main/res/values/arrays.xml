@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The LAST entry must stay "write my own question" (RecoveryFormController relies on it). -->
+    <string-array name="recovery_questions">
+        <item>What is your favorite food?</item>
+        <item>What was the name of your first pet?</item>
+        <item>What street did you grow up on?</item>
+        <item>What is your favorite book?</item>
+        <item>Write my own question…</item>
+    </string-array>
+    <!-- Index must equal RepeatType.code -->
+    <string-array name="repeat_options">
+        <item>Does not repeat</item>
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
+</resources>

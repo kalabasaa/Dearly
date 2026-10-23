@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Soft blush pink palette (light) -->
+    <color name="dearly_bg">#FFF8F6</color>
+    <color name="dearly_surface">#FFFFFF</color>
+    <color name="dearly_surface_variant">#FDEEF1</color>
+    <color name="dearly_primary">#B84B6B</color>
+    <color name="dearly_on_primary">#FFFFFF</color>
+    <color name="dearly_primary_container">#F9DCE3</color>
+    <color name="dearly_on_primary_container">#4A1226</color>
+    <color name="dearly_text">#3B2A33</color>
+    <color name="dearly_text_secondary">#6F5A64</color>
+    <color name="dearly_outline">#F0D2DA</color>
+    <color name="dearly_highlight">#F8C8D6</color>
+    <color name="dearly_selection">#55B84B6B</color>
+    <color name="dearly_error">#B3261E</color>
+    <color name="dearly_scrim">#66000000</color>
+
+    <!-- Folder pastels -->
+    <color name="folder_0">#FDE4EA</color>
+    <color name="folder_1">#FFE9DC</color>
+    <color name="folder_2">#FFF3D6</color>
+    <color name="folder_3">#E4F3E1</color>
+    <color name="folder_4">#DCEFF5</color>
+    <color name="folder_5">#E6E3F8</color>
+    <color name="folder_6">#F6E1F3</color>
+    <color name="folder_7">#ECE7E3</color>
+</resources>

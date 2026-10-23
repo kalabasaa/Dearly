@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dearly_bg"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationContentDescription="@string/back"
+        app:navigationIcon="@drawable/ic_back" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/page_margin"
+            android:paddingEnd="@dimen/page_margin">
+
+            <EditText
+                android:id="@+id/et_title"
+                style="@style/TextAppearance.Dearly.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/editor_title_hint"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textCapSentences"
+                android:maxLength="120"
+                android:minHeight="@dimen/touch_target"
+                android:textColorHint="@color/dearly_text_secondary" />
+
+            <TextView
+                android:id="@+id/tv_dates"
+                style="@style/TextAppearance.Dearly.Meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- Folder and tag controls: small secondary text, no icons, borders or fills. -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/btn_folder"
+                    style="@style/Widget.Dearly.TextLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/space_lg"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_tags"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/btn_tags"
+                    style="@style/Widget.Dearly.TextLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/btn_folder" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/ll_tags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_sm"
+                    android:orientation="horizontal"
+                    android:visibility="gone" />
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:id="@+id/blocks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_xs"
+                android:orientation="vertical" />
+
+            <View
+                android:id="@+id/tail_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:minHeight="120dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tv_save_status"
+        style="@style/TextAppearance.Dearly.Meta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="polite"
+        android:gravity="end"
+        android:paddingStart="@dimen/page_margin"
+        android:paddingEnd="@dimen/page_margin" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dearly_surface_variant"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <ImageButton
+                android:id="@+id/btn_bold"
+                style="@style/Widget.Dearly.FormatButton"
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:contentDescription="@string/format_bold"
+                android:src="@drawable/ic_bold" />
+
+            <ImageButton
+                android:id="@+id/btn_italic"
+                style="@style/Widget.Dearly.FormatButton"
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:contentDescription="@string/format_italic"
+                android:src="@drawable/ic_italic" />
+
+            <ImageButton
+                android:id="@+id/btn_underline"
+                style="@style/Widget.Dearly.FormatButton"
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:contentDescription="@string/format_underline"
+                android:src="@drawable/ic_underline" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_size"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/touch_target"
+                android:contentDescription="@string/format_size"
+                android:minWidth="64dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:icon="@drawable/ic_text_size"
+                app:iconPadding="2dp" />
+
+            <ImageButton
+                android:id="@+id/btn_highlight"
+                style="@style/Widget.Dearly.FormatButton"
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:contentDescription="@string/format_highlight"
+                android:src="@drawable/ic_highlight" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@color/dearly_outline"
+                android:importantForAccessibility="no" />
+
+            <ImageButton
+                android:id="@+id/btn_bullets"
+                style="@style/Widget.Dearly.FormatButton"
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:contentDescription="@string/format_bullets"
+                android:src="@drawable/ic_bullets" />
+
+            <ImageButton
+                android:id="@+id/btn_numbers"
+                style="@style/Widget.Dearly.FormatButton"
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:contentDescription="@string/format_numbers"
+                android:src="@drawable/ic_numbered" />
+
+            <ImageButton
+                android:id="@+id/btn_check"
+                style="@style/Widget.Dearly.FormatButton"
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:contentDescription="@string/format_checklist"
+                android:src="@drawable/ic_checklist" />
+
+            <ImageButton
+                android:id="@+id/btn_table"
+                style="@style/Widget.Dearly.FormatButton"
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:contentDescription="@string/format_table"
+                android:src="@drawable/ic_table" />
+
+            <ImageButton
+                android:id="@+id/btn_sticker"
+                style="@style/Widget.Dearly.FormatButton"
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:contentDescription="@string/format_sticker"
+                android:src="@drawable/ic_image" />
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

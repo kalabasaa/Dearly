@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_undo"
+        android:icon="@drawable/ic_undo"
+        android:title="@string/undo"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_redo"
+        android:icon="@drawable/ic_redo"
+        android:title="@string/redo"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_pin"
+        android:icon="@drawable/ic_pin"
+        android:title="@string/pin"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_reminder"
+        android:title="@string/editor_add_reminder"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_delete"
+        android:title="@string/delete"
+        app:showAsAction="never" />
+</menu>

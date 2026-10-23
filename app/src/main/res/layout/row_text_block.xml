@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <!-- "1." / bullet: a direct child of the row so the row baseline-aligns it with the first line of text.
+         Right-aligned in a fixed-width column so 1. and 10. both end at the same x and the text stays flush. -->
+    <TextView
+        android:id="@+id/tv_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:importantForAccessibility="no"
+        android:includeFontPadding="false"
+        android:minWidth="32dp"
+        android:paddingStart="0dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="@dimen/space_xs"
+        android:textColor="@color/dearly_text"
+        android:textSize="@dimen/editor_text_size"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/fl_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="32dp"
+        android:visibility="gone">
+
+        <CheckBox
+            android:id="@+id/cb_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/editor_checkbox"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:paddingTop="2dp" />
+    </FrameLayout>
+
+    <com.dearly.app.ui.editor.BlockEditText
+        android:id="@+id/block_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="top|start"
+        android:importantForAutofill="no"
+        android:includeFontPadding="false"
+        android:inputType="textCapSentences|textMultiLine"
+        android:lineSpacingMultiplier="1.2"
+        android:minHeight="40dp"
+        android:paddingStart="4dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="4dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/dearly_text"
+        android:textColorHighlight="@color/dearly_selection"
+        android:textSize="@dimen/editor_text_size" />
+</LinearLayout>

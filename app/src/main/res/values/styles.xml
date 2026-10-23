@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Typography hierarchy: Display > Title > Heading > Body > Meta; Label for small section captions. -->
+    <style name="TextAppearance.Dearly.Display" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textSize">@dimen/text_display</item>
+        <item name="android:textColor">@color/dearly_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.Dearly.Title" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textColor">@color/dearly_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.Dearly.Heading" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/text_heading</item>
+        <item name="android:textColor">@color/dearly_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.Dearly.Body" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/dearly_text</item>
+        <item name="android:textSize">@dimen/text_body</item>
+    </style>
+    <style name="TextAppearance.Dearly.Meta" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/dearly_text_secondary</item>
+        <item name="android:textSize">@dimen/text_meta</item>
+    </style>
+    <style name="TextAppearance.Dearly.Label" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">@dimen/text_label</item>
+        <item name="android:textColor">@color/dearly_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.Dearly.Card" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/dearly_surface</item>
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/dearly_outline</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Plain number: no background, border or container. Press feedback is a text colour change only. -->
+    <style name="Widget.Dearly.PinKey" parent="">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/pin_key_text</item>
+        <item name="android:textColor">@color/pin_key_text</item>
+        <item name="android:background">@null</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="Widget.Dearly.TagChip" parent="">
+        <item name="android:background">@drawable/bg_tag_chip</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:textColor">@color/dearly_on_primary_container</item>
+        <item name="android:textSize">@dimen/text_meta</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Widget.Dearly.FormatButton" parent="">
+        <item name="android:layout_width">@dimen/touch_target</item>
+        <item name="android:layout_height">@dimen/touch_target</item>
+        <item name="android:background">@drawable/bg_format_button</item>
+        <item name="android:tint">@color/dearly_text</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <!-- Small secondary text action (e.g. "No folder", "Add tags" in the editor): no icon, border or fill. -->
+    <style name="Widget.Dearly.TextLink" parent="">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">@dimen/touch_target</item>
+        <item name="android:textSize">@dimen/text_label</item>
+        <item name="android:textColor">@color/text_link</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- Shape families -->
+    <style name="ShapeAppearance.Dearly.Fab" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/fab_radius</item>
+    </style>
+    <style name="ShapeAppearance.Dearly.Control" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/control_radius</item>
+    </style>
+    <style name="ShapeAppearance.Dearly.Large" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/card_radius</item>
+    </style>
+
+    <!-- Every plus button in the app: rounded square, same radius, height and colours. Flat: no drop shadow in any state. -->
+    <style name="Widget.Dearly.Fab" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Dearly.Fab</item>
+        <item name="fabCustomSize">@dimen/fab_size</item>
+        <item name="maxImageSize">@dimen/nav_icon_size</item>
+        <item name="elevation">0dp</item>
+        <item name="pressedTranslationZ">0dp</item>
+        <item name="hoveredFocusedTranslationZ">0dp</item>
+        <item name="borderWidth">0dp</item>
+    </style>
+
+    <style name="Widget.Dearly.ExtendedFab" parent="Widget.Material3.ExtendedFloatingActionButton.Primary">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Dearly.Fab</item>
+        <item name="android:minHeight">@dimen/fab_size</item>
+        <item name="android:textSize">@dimen/text_label</item>
+        <item name="elevation">0dp</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:translationZ">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- Tag chips inside the Add Tags dialog. -->
+    <style name="Widget.Dearly.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_bg</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipIconVisible">false</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Dearly.Control</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="android:textSize">@dimen/text_label</item>
+    </style>
+    <style name="ThemeOverlay.Dearly.Chip" parent="">
+        <item name="chipStyle">@style/Widget.Dearly.Chip</item>
+    </style>
+
+    <!-- Bottom navigation: icons only; the selected icon sits in a perfect circle (equal width and height, fully rounded). -->
+    <style name="ShapeAppearance.Dearly.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="Widget.Dearly.NavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/dearly_primary_container</item>
+        <item name="android:width">@dimen/nav_indicator_size</item>
+        <item name="android:height">@dimen/nav_indicator_size</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Dearly.Circle</item>
+    </style>
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Colours come from values/colors.xml and values-night/colors.xml, so one theme serves light and dark. -->
+    <style name="Theme.Dearly" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/dearly_primary</item>
+        <item name="colorOnPrimary">@color/dearly_on_primary</item>
+        <item name="colorPrimaryContainer">@color/dearly_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/dearly_on_primary_container</item>
+        <item name="colorSecondaryContainer">@color/dearly_primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/dearly_on_primary_container</item>
+        <item name="colorSurface">@color/dearly_surface</item>
+        <item name="colorOnSurface">@color/dearly_text</item>
+        <item name="colorSurfaceVariant">@color/dearly_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/dearly_text_secondary</item>
+        <item name="colorOutline">@color/dearly_text_secondary</item>
+        <item name="colorOutlineVariant">@color/dearly_outline</item>
+        <item name="colorError">@color/dearly_error</item>
+        <item name="android:colorBackground">@color/dearly_bg</item>
+        <item name="android:statusBarColor">@color/dearly_bg</item>
+        <item name="android:navigationBarColor">@color/dearly_bg</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">@bool/light_system_bars</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="bottomNavigationStyle">@style/Widget.Dearly.BottomNav</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Dearly.Control</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Dearly.Large</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Dearly.Large</item>
+        <item name="floatingActionButtonStyle">@style/Widget.Dearly.Fab</item>
+        <item name="extendedFloatingActionButtonStyle">@style/Widget.Dearly.ExtendedFab</item>
+    </style>
+
+    <style name="Widget.Dearly.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/dearly_surface</item>
+        <item name="android:minHeight">@dimen/nav_height</item>
+        <item name="elevation">0dp</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+        <!-- The selected item is a circle drawn by bg_nav_item (Material's own indicator is switched off in MainActivity). -->
+        <item name="itemBackground">@drawable/bg_nav_item</item>
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.Dearly.NavIndicator</item>
+        <item name="itemIconSize">@dimen/nav_icon_size</item>
+        <item name="itemIconTint">@color/nav_item</item>
+        <item name="itemTextColor">@color/nav_item</item>
+        <item name="itemPaddingTop">@dimen/nav_item_padding_vertical</item>
+        <item name="itemPaddingBottom">@dimen/nav_item_padding_vertical</item>
+    </style>
+</resources>

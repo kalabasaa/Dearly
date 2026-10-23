@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dearly</string>
+
+    <!-- Common -->
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="done">Done</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="rename">Rename</string>
+    <string name="restore">Restore</string>
+    <string name="verify">Verify</string>
+    <string name="today">Today</string>
+    <string name="turn_on">Turn on</string>
+    <string name="undo">Undo</string>
+    <string name="redo">Redo</string>
+    <string name="pin">Pin</string>
+    <string name="unpin">Unpin</string>
+    <string name="pinned">Pinned</string>
+    <string name="untitled">Untitled</string>
+    <string name="not_set">Not set</string>
+    <string name="tags">Tags</string>
+    <string name="sort">Sort</string>
+    <string name="sort_by">Sort: %s</string>
+    <string name="sort_updated">Last updated</string>
+    <string name="sort_created">Date created</string>
+    <string name="sort_title">Title</string>
+    <string name="sort_name">Name</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_name_required">Please enter a name.</string>
+    <string name="error_load_note">This note could not be opened.</string>
+    <string name="error_save_note">Couldn\'t save your latest changes. Dearly will keep retrying; your text is still on screen.</string>
+    <string name="error_save_setup">Couldn\'t save your setup. Please try again.</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_library">Library</string>
+    <string name="nav_reminders">Reminders</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_progress">Setup progress</string>
+    <string name="onb_get_started">Get started</string>
+    <string name="onb_welcome_title">Welcome to Dearly</string>
+    <string name="onb_welcome_body">A calm, private place for your diary entries, thoughts and plans.</string>
+    <string name="onb_features_title">What you can do</string>
+    <string name="onb_feature_write">✍️  Write with bold, italics, highlights, lists, checklists, tables and stickers.</string>
+    <string name="onb_feature_organize">🗂️  Keep entries in folders and find them with tags and search.</string>
+    <string name="onb_feature_remind">🔔  Set reminders that notify you on time, even offline.</string>
+    <string name="onb_feature_private">🔒  Everything stays on your phone and is protected by your PIN.</string>
+    <string name="onb_name_title">What should we call you?</string>
+    <string name="hint_name">Your name</string>
+    <string name="onb_pin_title">Create a PIN</string>
+    <string name="onb_pin_body">Choose a four-digit PIN. You\'ll use it to open Dearly.</string>
+    <string name="onb_confirm_title">Confirm your PIN</string>
+    <string name="onb_confirm_body">Enter the same four digits again.</string>
+    <string name="onb_pins_mismatch">The PINs didn\'t match. Try again, or go back to choose a new one.</string>
+    <string name="onb_recovery_title">Recovery question</string>
+    <string name="onb_recovery_body">If you forget your PIN, answering this question lets you set a new one. Dearly cannot recover it for you, so choose an answer you will remember.</string>
+    <string name="onb_bio_title">Unlock with biometrics</string>
+    <string name="onb_bio_body">Use your fingerprint or face to open Dearly faster. This is optional, and your PIN always works too.</string>
+    <string name="onb_bio_enable">Enable biometric unlock</string>
+    <string name="onb_bio_enabled">Biometric unlock is on. You can change this later in Settings.</string>
+    <string name="onb_bio_not_enrolled">No fingerprint or face is set up on this phone. You can add one in system settings and turn this on later in Settings.</string>
+    <string name="onb_bio_unavailable">Biometric unlock isn\'t available on this device. Your PIN will be used.</string>
+    <string name="onb_bio_confirm_subtitle">Confirm to turn on biometric unlock</string>
+    <string name="hint_question">Recovery question</string>
+    <string name="hint_custom_question">Your question</string>
+    <string name="hint_answer">Your answer</string>
+    <string name="error_question_required">Please enter a question.</string>
+    <string name="error_answer_required">Please enter an answer.</string>
+
+    <!-- Lock -->
+    <string name="lock_welcome_back">Welcome back</string>
+    <string name="lock_welcome_back_name">Welcome back, %s</string>
+    <string name="lock_enter_pin">Enter your PIN</string>
+    <string name="lock_use_biometric">Use biometrics</string>
+    <string name="lock_forgot_pin">Forgot PIN?</string>
+    <string name="back_to_lock">Back</string>
+    <string name="use_pin">Use PIN</string>
+    <string name="biometric_title">Unlock Dearly</string>
+    <string name="biometric_subtitle">Use your fingerprint or face</string>
+    <string name="pin_entry_description">PIN entry, four digits</string>
+    <string name="pin_delete">Delete last digit</string>
+    <string name="enter_pin">Enter your PIN</string>
+    <string name="pin_wrong_attempts">Incorrect PIN. %d attempts left before a temporary lock.</string>
+    <string name="try_again_seconds">Too many attempts. Try again in %d seconds.</string>
+    <string name="try_again_minutes">Too many attempts. Try again in %d minutes.</string>
+    <string name="recovery_title">Reset your PIN</string>
+    <string name="recovery_not_set">No recovery question is set up.</string>
+    <string name="recovery_wrong_answer">That answer doesn\'t match.</string>
+    <string name="recovery_new_pin">Enter a new PIN</string>
+    <string name="recovery_confirm_pin">Confirm the new PIN</string>
+    <string name="recovery_pins_mismatch">PINs didn\'t match. Enter a new PIN again.</string>
+    <string name="recovery_is_set">A recovery question is set</string>
+    <string name="recovery_changed">Recovery question updated</string>
+    <string name="new_pin">Enter a new PIN</string>
+    <string name="pin_changed">PIN changed</string>
+
+    <!-- Home -->
+    <string name="greeting_morning">Good morning, %1$s</string>
+    <string name="greeting_afternoon">Good afternoon, %1$s</string>
+    <string name="greeting_evening">Good evening, %1$s</string>
+    <string name="home_subtitle">What would you like to write today?</string>
+    <string name="search_hint">Search notes, folders and tags</string>
+    <string name="section_folders">Folders</string>
+    <string name="section_notes">Notes</string>
+    <string name="section_pinned">Pinned notes</string>
+    <string name="section_latest">Latest notes</string>
+    <string name="view_all">View all</string>
+    <string name="view_all_notes">View all notes</string>
+    <string name="empty_folders_home">No folders yet. Create one to keep your entries organized.</string>
+    <string name="empty_pinned_home">Pin a note to keep it here.</string>
+    <string name="empty_notes_home">No notes yet. Write your first entry.</string>
+    <string name="create_note">Create note</string>
+    <string name="create_folder">Create folder</string>
+    <string name="fab_open">Create new</string>
+    <string name="fab_close">Close menu</string>
+
+    <!-- Search -->
+    <string name="clear_search">Clear search</string>
+    <string name="search_prompt">Type to search your notes, folders and tags.</string>
+    <string name="search_no_results">No results found.</string>
+
+    <!-- Library / folders -->
+    <string name="all_folders">All folders</string>
+    <string name="all_notes">All notes</string>
+    <string name="all_tags">All tags</string>
+    <string name="filter_tag">Filter by tag</string>
+    <string name="filter_tag_active">Tag: #%s</string>
+    <string name="new_folder">New folder</string>
+    <string name="new_note">New note</string>
+    <string name="edit_folder">Edit folder</string>
+    <string name="hint_folder_name">Folder name</string>
+    <string name="hint_folder_description">Description (optional)</string>
+    <string name="folder_color">Color</string>
+    <string name="folder_color_n">Folder color %d</string>
+    <string name="error_folder_name_required">Please enter a folder name.</string>
+    <string name="empty_folders_library">No folders yet. Tap \"New folder\" to create one.</string>
+    <string name="empty_notes_library">No notes yet. Tap \"New note\" to start writing.</string>
+    <string name="empty_filtered">Nothing has this tag yet.</string>
+    <string name="empty_folder_notes">This folder is empty. Tap \"New note\" to add an entry.</string>
+    <string name="move_to_folder">Move to folder</string>
+    <string name="no_folder">No folder</string>
+    <string name="edit_tags">Edit tags</string>
+    <string name="add_tags">Add tags</string>
+    <string name="no_tags">No tags</string>
+    <string name="updated_on">Updated %s</string>
+    <string name="delete_note_title">Delete this note?</string>
+    <string name="delete_note_message">It will move to Recently Deleted and be removed for good after 30 days. You can restore it until then.</string>
+    <string name="delete_folder_title">Delete this folder?</string>
+    <string name="moved_to_recently_deleted">Moved to Recently Deleted</string>
+    <string name="hint_new_tag">New tag</string>
+    <string name="tags_none_yet">No tags yet. Create one above.</string>
+    <string name="error_tag_invalid">Please enter a valid tag name.</string>
+    <string name="error_tag_duplicate">A tag with that name already exists.</string>
+    <string name="tag_delete_title">Delete this tag?</string>
+    <string name="tag_delete_message">\"#%s\" will be removed from every note and folder. The notes and folders themselves are not deleted.</string>
+    <string name="link_note">Link a note</string>
+    <string name="no_linked_note">No linked note</string>
+
+    <!-- Editor -->
+    <string name="editor_title_hint">Title</string>
+    <string name="editor_new_note">New note</string>
+    <string name="editor_dates">Created %1$s  •  Updated %2$s</string>
+    <string name="editor_add_reminder">Add reminder</string>
+    <string name="editor_checkbox">Checklist item</string>
+    <string name="status_saved">Saved</string>
+    <string name="status_editing">Editing…</string>
+    <string name="status_saving">Saving…</string>
+    <string name="status_failed">Couldn\'t save, retrying…</string>
+    <string name="format_bold">Bold</string>
+    <string name="format_italic">Italic</string>
+    <string name="format_underline">Underline</string>
+    <string name="format_size">Text size</string>
+    <string name="format_highlight">Highlight</string>
+    <string name="format_bullets">Bulleted list</string>
+    <string name="format_numbers">Numbered list</string>
+    <string name="format_checklist">Checklist</string>
+    <string name="format_table">Insert table</string>
+    <string name="format_sticker">Insert sticker</string>
+    <string name="size_xs">1 · Extra small</string>
+    <string name="size_s">2 · Small</string>
+    <string name="size_m">3 · Medium (default)</string>
+    <string name="size_l">4 · Large</string>
+    <string name="size_xl">5 · Extra large</string>
+    <string name="table_add_row">+ Row</string>
+    <string name="table_add_col">+ Column</string>
+    <string name="table_del_row">− Row</string>
+    <string name="table_del_col">− Column</string>
+    <string name="table_delete">Delete table</string>
+    <string name="sticker_image">Sticker</string>
+    <string name="sticker_unavailable">Sticker unavailable</string>
+    <string name="sticker_size">Sticker size</string>
+    <string name="sticker_remove_from_note">Remove sticker from this note</string>
+    <string name="reminder_write_first">Write something in the note first, then add a reminder.</string>
+
+    <!-- Stickers -->
+    <string name="stickers">Stickers</string>
+    <string name="sticker_choose">Choose a sticker</string>
+    <string name="sticker_import">Import images</string>
+    <string name="sticker_empty">No stickers yet. Import PNG, JPEG or WebP images. Transparent PNGs work best.</string>
+    <string name="hint_sticker_name">Sticker name</string>
+    <string name="sticker_delete_title">Delete sticker?</string>
+    <string name="sticker_delete_unused">This removes the sticker from your library for good.</string>
+    <string name="sticker_error_not_image">That file isn\'t a supported image (PNG, JPEG or WebP).</string>
+    <string name="sticker_error_too_large">That image is too large to import.</string>
+    <string name="sticker_error_unreadable">Couldn\'t read that file.</string>
+    <string name="sticker_error_storage">Couldn\'t save the image. Check your free storage.</string>
+
+    <!-- Reminders -->
+    <string name="new_reminder">New reminder</string>
+    <string name="edit_reminder">Edit reminder</string>
+    <string name="hint_reminder_title">Title</string>
+    <string name="hint_reminder_description">Description (optional)</string>
+    <string name="hint_repeat">Repeat</string>
+    <string name="linked_note_named">Note: %s</string>
+    <string name="previous_month">Previous month</string>
+    <string name="next_month">Next month</string>
+    <string name="has_reminders">has reminders</string>
+    <string name="empty_reminders_day">No reminders on this day.</string>
+    <string name="reminder_mark_done">Mark as done</string>
+    <string name="delete_reminder_title">Delete this reminder?</string>
+    <string name="error_reminder_title_required">Please enter a title.</string>
+    <string name="error_reminder_in_past">Choose a time in the future.</string>
+    <string name="reminder_saved">Reminder saved</string>
+    <string name="reminder_set_for">Reminder set for %s</string>
+    <string name="reminder_saved_notifications_off">Reminder saved, but notifications are turned off, so it won\'t alert you until you allow them.</string>
+    <string name="notifications_off_notice">Notifications are off. Reminders won\'t alert you.</string>
+    <string name="channel_reminders">Reminders</string>
+    <string name="channel_reminders_desc">Alerts for the reminders you create in Dearly</string>
+    <string name="notif_generic_text">You have a reminder</string>
+
+    <!-- Settings -->
+    <string name="settings_personalization">Personalization</string>
+    <string name="settings_name">Your name</string>
+    <string name="settings_dark_mode">Dark theme</string>
+    <string name="settings_dark_mode_summary">Easier on the eyes at night</string>
+    <string name="settings_security">Security</string>
+    <string name="settings_change_pin">Change PIN</string>
+    <string name="settings_change_pin_summary">Requires your current PIN</string>
+    <string name="settings_enter_current_pin">Enter your current PIN</string>
+    <string name="settings_biometric">Biometric unlock</string>
+    <string name="settings_biometric_summary">Fingerprint or face, with PIN as backup</string>
+    <string name="settings_change_recovery">Recovery question</string>
+    <string name="settings_security_status">Security storage</string>
+    <string name="security_status_encrypted">PIN and recovery data are hashed and kept in Keystore-encrypted storage.</string>
+    <string name="security_status_fallback">PIN and recovery data are hashed but this device could not provide encrypted storage.</string>
+    <string name="settings_reminders">Reminders</string>
+    <string name="settings_notif_titles">Show titles in notifications</string>
+    <string name="settings_notif_titles_summary">Off by default so reminders stay private on your lock screen</string>
+    <string name="settings_notification_settings">Notification settings</string>
+    <string name="settings_notification_settings_summary">Open system settings for Dearly</string>
+    <string name="settings_content">Content</string>
+    <string name="settings_manage_tags">Manage tags</string>
+    <string name="settings_stickers">Sticker library</string>
+    <string name="settings_recently_deleted">Recently Deleted</string>
+    <string name="settings_recently_deleted_summary">Requires your PIN</string>
+    <string name="settings_about">About</string>
+    <string name="settings_version">Version %s</string>
+    <string name="settings_privacy">Privacy</string>
+    <string name="settings_privacy_summary">Everything is stored only on this device. The PIN controls access to the app; the database file itself is not encrypted.</string>
+
+    <!-- Recently deleted -->
+    <string name="deleted_enter_pin">Recently Deleted</string>
+    <string name="deleted_pin_subtitle">Enter your PIN to continue</string>
+    <string name="deleted_empty">Nothing here. Deleted notes and folders stay for 30 days.</string>
+    <string name="deleted_on">Deleted %s</string>
+    <string name="restored">Restored</string>
+    <string name="delete_forever">Delete forever</string>
+    <string name="delete_forever_title">Delete permanently?</string>
+    <string name="delete_forever_message">\"%s\" will be gone for good. This can\'t be undone.</string>
+
+    <plurals name="notes_count">
+        <item quantity="one">%d note</item>
+        <item quantity="other">%d notes</item>
+    </plurals>
+    <plurals name="delete_folder_message">
+        <item quantity="one">The folder and its %d note will move to Recently Deleted for 30 days. You can restore them together.</item>
+        <item quantity="other">The folder and its %d notes will move to Recently Deleted for 30 days. You can restore them together.</item>
+    </plurals>
+    <plurals name="deleted_folder_contents">
+        <item quantity="one">Includes %d note</item>
+        <item quantity="other">Includes %d notes</item>
+    </plurals>
+    <plurals name="days_left">
+        <item quantity="one">%d day left</item>
+        <item quantity="other">%d days left</item>
+    </plurals>
+    <plurals name="sticker_delete_used">
+        <item quantity="one">This sticker is used in %d note. Deleting it removes it from your library and that note will show a missing-image placeholder.</item>
+        <item quantity="other">This sticker is used in %d notes. Deleting it removes it from your library and those notes will show a missing-image placeholder.</item>
+    </plurals>
+    <plurals name="stickers_imported">
+        <item quantity="one">%d sticker imported</item>
+        <item quantity="other">%d stickers imported</item>
+    </plurals>
+</resources>
