@@ -103,7 +103,6 @@
         <item name="hoveredFocusedTranslationZ">0dp</item>
         <item name="borderWidth">0dp</item>
     </style>
-
     <style name="Widget.Dearly.ExtendedFab" parent="Widget.Material3.ExtendedFloatingActionButton.Primary">
         <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Dearly.Fab</item>
         <item name="android:minHeight">@dimen/fab_size</item>

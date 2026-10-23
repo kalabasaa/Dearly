@@ -24,6 +24,13 @@ object Formatters {
     fun fullDate(context: Context, millis: Long): String =
         DateUtils.formatDateTime(context, millis, DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_YEAR or DateUtils.FORMAT_SHOW_WEEKDAY)
 
+    /** "Fri, Oct 23, 2026": short enough to stay on one line in the reminder dialog. */
+    fun shortFullDate(context: Context, millis: Long): String =
+        DateUtils.formatDateTime(
+            context, millis,
+            DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_YEAR or DateUtils.FORMAT_SHOW_WEEKDAY or DateUtils.FORMAT_ABBREV_ALL
+        )
+
     fun monthYear(context: Context, millis: Long): String =
         DateUtils.formatDateTime(context, millis, DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_NO_MONTH_DAY or DateUtils.FORMAT_SHOW_YEAR)
 

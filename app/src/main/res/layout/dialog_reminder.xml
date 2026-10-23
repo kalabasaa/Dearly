@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -46,19 +47,32 @@
             android:layout_marginTop="12dp"
             android:orientation="horizontal">
 
+            <!-- Same height as the text fields, one line each, same corner radius: no stretched pill. -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_date"
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/control_height"
                 android:layout_marginEnd="8dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:maxLines="1"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                app:cornerRadius="@dimen/control_radius" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_time"
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="@dimen/control_height"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:maxLines="1"
+                android:minWidth="96dp"
+                app:cornerRadius="@dimen/control_radius" />
         </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -81,8 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            app:icon="@drawable/ic_note"
-            xmlns:app="http://schemas.android.com/apk/res-auto" />
+            app:icon="@drawable/ic_note" />
 
         <TextView
             android:id="@+id/tv_error"

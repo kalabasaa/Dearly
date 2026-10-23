@@ -122,6 +122,10 @@ class BlockEditor(
         edit.setText(block.text)
         edit.text?.let { SpanFormatter.write(it, block.spans, highlightColor) }
         applyListStyle(holder, block.list, number, block.checked)
+        // The first line's height can change (text size, wrapping), so keep the checkbox centred on it.
+        edit.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            if (holder.list == ListType.CHECK) alignCheckbox(holder)
+        }
 
         edit.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -160,16 +164,53 @@ class BlockEditor(
     private fun applyListStyle(h: TextHolder, list: ListType, number: Int, checked: Boolean) {
         h.list = list
         h.b.flMarker.show(list == ListType.CHECK)
-        h.b.tvMarker.show(list == ListType.BULLET || list == ListType.NUMBERED)
-        h.b.tvMarker.text = if (list == ListType.BULLET) "•" else "$number."
-        // Bullets get a larger glyph so they look proportional to the text; numbers match the text size.
-        h.b.tvMarker.setTextSize(
-            android.util.TypedValue.COMPLEX_UNIT_PX,
-            activity.resources.getDimension(if (list == ListType.BULLET) R.dimen.editor_bullet_size else R.dimen.editor_text_size)
-        )
+        h.b.tvMarker.show(list == ListType.NUMBERED)
+        h.b.vBullet.show(list == ListType.BULLET)
+        h.b.tvMarker.text = "$number."
+        if (list == ListType.BULLET) alignBullet(h)
+        if (list == ListType.CHECK) alignCheckbox(h)
         h.b.cbCheck.show(list == ListType.CHECK)
         h.b.cbCheck.isChecked = list == ListType.CHECK && checked
         updateStrike(h, list == ListType.CHECK && checked)
+    }
+
+    /**
+     * Puts the middle of the bullet on the middle of the first line's lower-case letters: the baseline
+     * minus half the x-height, measured from the editor's own font so it holds for any font or size.
+     */
+    private fun alignBullet(h: TextHolder) {
+        val paint = h.b.blockEdit.paint
+        val xBounds = android.graphics.Rect()
+        paint.getTextBounds("x", 0, 1, xBounds)
+        val dot = activity.dp(BULLET_DP)
+        val centre = -paint.fontMetrics.ascent - xBounds.height() / 2f
+        val lp = h.b.vBullet.layoutParams as LinearLayout.LayoutParams
+        lp.width = dot
+        lp.height = dot
+        lp.topMargin = (centre - dot / 2f).toInt().coerceAtLeast(0)
+        h.b.vBullet.layoutParams = lp
+    }
+
+    /**
+     * Makes the checkbox column exactly as tall as the first line of text, so the box (centred in the column)
+     * sits level with that line instead of drifting down. Only touches the layout when the height changes,
+     * so the layout listener that calls this cannot loop.
+     */
+    private fun alignCheckbox(h: TextHolder) {
+        val edit = h.b.blockEdit
+        val layout = edit.layout
+        val lineHeight = if (layout != null && layout.lineCount > 0) {
+            layout.getLineBottom(0) - layout.getLineTop(0)
+        } else {
+            val fm = edit.paint.fontMetricsInt
+            fm.descent - fm.ascent
+        }
+        val target = lineHeight.coerceAtLeast(activity.dp(CHECKBOX_DP))
+        val lp = h.b.flMarker.layoutParams
+        if (lp.height != target) {
+            lp.height = target
+            h.b.flMarker.layoutParams = lp
+        }
     }
 
     private fun updateStrike(h: TextHolder, on: Boolean) {
@@ -492,3 +533,6 @@ class BlockEditor(
         callbacks.onContentChanged(true)
     }
 }
+
+private const val BULLET_DP = 8
+private const val CHECKBOX_DP = 24

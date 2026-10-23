@@ -46,7 +46,7 @@ object ReminderDialog {
         b.etDesc.setText(existing?.description.orEmpty())
 
         fun render() {
-            b.btnDate.text = Formatters.fullDate(activity, start.toMillis())
+            b.btnDate.text = Formatters.shortFullDate(activity, start.toMillis())
             b.btnTime.text = Formatters.time(activity, start.toMillis())
             b.btnNote.text = noteTitle?.let { activity.getString(R.string.linked_note_named, it) } ?: activity.getString(R.string.link_note)
         }

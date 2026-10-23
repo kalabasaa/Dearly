@@ -15,28 +15,46 @@
         android:includeFontPadding="false"
         android:minWidth="32dp"
         android:paddingStart="0dp"
-        android:paddingTop="8dp"
+        android:paddingTop="0dp"
         android:paddingEnd="@dimen/space_xs"
         android:textColor="@color/dearly_text"
         android:textSize="@dimen/editor_text_size"
         android:visibility="gone" />
 
+    <!-- Bullet: a real circle (not a font glyph), 8dp wide. Its top margin is set in BlockEditor so the
+         centre sits on the middle of the first line of text. Same 32dp column as the number marker. -->
+    <View
+        android:id="@+id/v_bullet"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_bullet_dot"
+        android:importantForAccessibility="no"
+        android:visibility="gone" />
+
+    <!-- Checkbox column: same 32dp column as the bullet / number. Its height is set in BlockEditor to the height
+         of the first text line, and the box is centred in that, so it sits level with the first line of text.
+         The 24dp box starts 8dp in, so its centre (20dp) matches the centre of the bullet dot. -->
     <FrameLayout
         android:id="@+id/fl_marker"
-        android:layout_width="wrap_content"
+        android:layout_width="32dp"
         android:layout_height="wrap_content"
-        android:minWidth="32dp"
+        android:clipChildren="false"
         android:visibility="gone">
 
         <CheckBox
             android:id="@+id/cb_check"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="8dp"
             android:contentDescription="@string/editor_checkbox"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:padding="0dp"
-            android:paddingTop="2dp" />
+            android:scaleX="0.9"
+            android:scaleY="0.9" />
     </FrameLayout>
 
     <com.dearly.app.ui.editor.BlockEditText
@@ -49,12 +67,10 @@
         android:importantForAutofill="no"
         android:includeFontPadding="false"
         android:inputType="textCapSentences|textMultiLine"
-        android:lineSpacingMultiplier="1.2"
-        android:minHeight="40dp"
         android:paddingStart="4dp"
-        android:paddingTop="8dp"
+        android:paddingTop="0dp"
         android:paddingEnd="4dp"
-        android:paddingBottom="8dp"
+        android:paddingBottom="0dp"
         android:textColor="@color/dearly_text"
         android:textColorHighlight="@color/dearly_selection"
         android:textSize="@dimen/editor_text_size" />

@@ -160,6 +160,7 @@
     <string name="error_tag_duplicate">A tag with that name already exists.</string>
     <string name="tag_delete_title">Delete this tag?</string>
     <string name="tag_delete_message">\"#%s\" will be removed from every note and folder. The notes and folders themselves are not deleted.</string>
+    <string name="tag_remove">Remove #%s</string>
     <string name="link_note">Link a note</string>
     <string name="no_linked_note">No linked note</string>
 

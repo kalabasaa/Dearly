@@ -25,7 +25,9 @@ class PinPadView @JvmOverloads constructor(context: Context, attrs: AttributeSet
     private val dotRow = LinearLayout(context)
     private var locked = false
     private val cells = ArrayList<View>()
-    private var keyWidthPx = 0
+    private var preferredKeyPx = 0
+    private var minKeyPx = 0
+    private var currentKeyPx = 0
 
     init {
         orientation = VERTICAL
@@ -50,7 +52,9 @@ class PinPadView @JvmOverloads constructor(context: Context, attrs: AttributeSet
         // --- the keypad: plain numbers on a fixed grid. Every cell has the same size (set per screen
         // size in dimens), so rows and columns stay evenly spaced and nothing can be clipped.
         val keyWidth = resources.getDimensionPixelSize(R.dimen.pin_key_width)
-        keyWidthPx = keyWidth
+        preferredKeyPx = keyWidth
+        minKeyPx = context.dp(MIN_KEY_DP)
+        currentKeyPx = keyWidth
         val keyHeight = resources.getDimensionPixelSize(R.dimen.pin_key_height)
         val keyTextPx = resources.getDimension(R.dimen.pin_key_text)
         val rows = listOf(
@@ -86,19 +90,26 @@ class PinPadView @JvmOverloads constructor(context: Context, attrs: AttributeSet
     }
 
     /**
-     * The pad is always exactly three keys wide, whatever width the parent offers. A parent that hands
-     * over a narrower AT_MOST width (as happened when the pad was clipped to the width of the PIN dots)
-     * can therefore no longer cut off the third column.
+     * Keys are as wide as the preferred size, or narrower when the parent offers less room (for example inside
+     * a dialog), but never narrower than the minimum. The pad is always exactly three keys wide, so a parent
+     * that hands over a smaller AT_MOST width can no longer cut off the third column.
      */
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val available = MeasureSpec.getSize(widthMeasureSpec)
+        val keyPx = if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.UNSPECIFIED) {
+            preferredKeyPx
+        } else {
+            (available / COLUMNS).coerceIn(minKeyPx, preferredKeyPx)
+        }
+        currentKeyPx = keyPx
         for (cell in cells) {
             val lp = cell.layoutParams
-            if (lp.width != keyWidthPx) {
-                lp.width = keyWidthPx
+            if (lp.width != keyPx) {
+                lp.width = keyPx
                 cell.layoutParams = lp
             }
         }
-        val exactWidth = MeasureSpec.makeMeasureSpec(keyWidthPx * COLUMNS, MeasureSpec.EXACTLY)
+        val exactWidth = MeasureSpec.makeMeasureSpec(keyPx * COLUMNS, MeasureSpec.EXACTLY)
         super.onMeasure(exactWidth, heightMeasureSpec)
     }
 
@@ -152,5 +163,6 @@ class PinPadView @JvmOverloads constructor(context: Context, attrs: AttributeSet
     companion object {
         const val LENGTH = 4
         private const val COLUMNS = 3
+        private const val MIN_KEY_DP = 72
     }
 }

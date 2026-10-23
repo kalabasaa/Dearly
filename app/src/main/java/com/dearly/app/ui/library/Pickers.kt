@@ -1,6 +1,11 @@
 package com.dearly.app.ui.library
 
+import android.content.res.ColorStateList
 import android.view.ContextThemeWrapper
+import android.view.Gravity
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
 import com.dearly.app.R
 import com.dearly.app.data.ServiceLocator
 import com.dearly.app.databinding.DialogTagsBinding
@@ -9,6 +14,7 @@ import com.dearly.app.model.NoteSort
 import com.dearly.app.model.NoteSummary
 import com.dearly.app.model.Tag
 import com.dearly.app.ui.BaseActivity
+import com.dearly.app.ui.common.dp
 import com.dearly.app.ui.common.show
 import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -52,17 +58,67 @@ object Pickers {
             // Chips pick up the Dearly chip style (flat, rounded, no icons) through this theme overlay.
             val chipContext = ContextThemeWrapper(activity, R.style.ThemeOverlay_Dearly_Chip)
 
-            fun rebuild() {
+            // removeTag -> rebuild -> addChip -> removeTag is circular, so rebuild is assigned further down.
+            var rebuild: () -> Unit = {}
+
+            // Deleting a tag removes it from the list and from every note and folder using it.
+            fun removeTag(tag: Tag) {
+                activity.background(work = { ServiceLocator.tags.usageCounts()[tag.id] ?: 0 }) { uses ->
+                    val delete = {
+                        activity.background(work = { ServiceLocator.tags.delete(tag.id) }) {
+                            tags.removeAll { it.id == tag.id }
+                            chosen.remove(tag.id)
+                            rebuild()
+                        }
+                    }
+                    if (uses == 0) {
+                        delete()
+                    } else {
+                        MaterialAlertDialogBuilder(activity)
+                            .setTitle(R.string.tag_delete_title)
+                            .setMessage(activity.getString(R.string.tag_delete_message, tag.name))
+                            .setPositiveButton(R.string.delete) { _, _ -> delete() }
+                            .setNegativeButton(R.string.cancel, null)
+                            .show()
+                    }
+                }
+            }
+
+            fun addChip(tag: Tag) {
+                val chip = Chip(chipContext)
+                chip.text = "#" + tag.name
+                chip.isCheckable = true
+                chip.isChecked = tag.id in chosen
+                chip.setEnsureMinTouchTargetSize(false)
+                chip.setOnCheckedChangeListener { _, checked -> if (checked) chosen.add(tag.id) else chosen.remove(tag.id) }
+
+                // The X: a small round badge centred on the chip's top-right corner.
+                val badge = activity.dp(BADGE_DP)
+                val remove = ImageView(activity)
+                remove.setImageResource(R.drawable.ic_close)
+                remove.imageTintList = ColorStateList.valueOf(activity.getColor(R.color.dearly_on_primary))
+                remove.setBackgroundResource(R.drawable.bg_tag_remove)
+                remove.setPadding(activity.dp(5), activity.dp(5), activity.dp(5), activity.dp(5))
+                remove.contentDescription = activity.getString(R.string.tag_remove, tag.name)
+                remove.setOnClickListener { removeTag(tag) }
+
+                val overhang = badge / 2
+                val frame = FrameLayout(activity)
+                frame.addView(
+                    chip,
+                    FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
+                        topMargin = overhang
+                        marginEnd = overhang
+                    }
+                )
+                frame.addView(remove, FrameLayout.LayoutParams(badge, badge, Gravity.TOP or Gravity.END))
+                b.chipGroup.addView(frame)
+            }
+
+            rebuild = {
                 b.chipGroup.removeAllViews()
                 b.tvNoTags.show(tags.isEmpty())
-                for (tag in tags) {
-                    val chip = Chip(chipContext)
-                    chip.text = "#" + tag.name
-                    chip.isCheckable = true
-                    chip.isChecked = tag.id in chosen
-                    chip.setOnCheckedChangeListener { _, checked -> if (checked) chosen.add(tag.id) else chosen.remove(tag.id) }
-                    b.chipGroup.addView(chip)
-                }
+                for (tag in tags) addChip(tag)
             }
 
             fun addTag() {
@@ -93,4 +149,6 @@ object Pickers {
                 .show()
         }
     }
+
+    private const val BADGE_DP = 20
 }
