@@ -117,13 +117,13 @@ Deleted items are soft-deleted with a timestamp, which is what powers Recently D
 
 ## 👥 Development Team
 
-### 👨‍💻 Your Name
+### 👨‍💻 Renier Tambogon
 
 **Lead Developer · Designer**
 
 Responsible for developing the application, managing the database, and designing the Dearly interface.
 
-**GitHub:** [your-username](https://github.com/kalabasaa)
+**GitHub:** [kalabasaa](https://github.com/kalabasaa)
 
 <br>
 
